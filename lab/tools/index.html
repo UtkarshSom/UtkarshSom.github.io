@@ -1,0 +1,88 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Tools | Utkarsh Som</title>
+<meta name="description" content="An email size checker, a UTM link builder and an A/B test size calculator. Free, in your browser.">
+<meta name="theme-color" content="#0b0b0c">
+<meta property="og:title" content="Tools | Utkarsh Som">
+<meta property="og:description" content="An email size checker, a UTM link builder and an A/B test size calculator. Free, in your browser.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Utkarsh Som">
+<meta name="twitter:card" content="summary">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b0b0c'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='37' text-anchor='middle' letter-spacing='-1'%3E%3Ctspan fill='%23ecebe6'%3EU%3C/tspan%3E%3Ctspan fill='%23d4ff5a' font-style='italic'%3ES%3C/tspan%3E%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../../style.css">
+<link rel="stylesheet" href="../../lab/lab.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"><span></span></div>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <a href="../../index.html" class="logo" aria-label="Utkarsh Som, home">U<em>S</em></a>
+  <nav aria-label="Primary"><a href="../../index.html#work">Work</a><a href="../../index.html#projects">Projects</a><a href="../../index.html#stack">Stack</a><a href="../../journal/">Journal</a><a href="../../lab/" class="here" aria-current="page">Lab</a><a href="../../index.html#contact">Contact</a></nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="theme-toggle" aria-label="Toggle light and dark theme"><svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M5.3 18.7l1.5-1.5M17.2 6.8l1.5-1.5"/></svg></button>
+  </div>
+</header>
+
+<main>
+  <section class="l-hero">
+    <canvas class="jbg" aria-hidden="true"></canvas>
+    <div class="wrap">
+      <p class="eyebrow reveal"><span class="dot"></span> Tools</p>
+      <h1 class="reveal">Small tools CRM people <em>use</em>.</h1>
+      <p class="lede reveal">Free, and they run in your browser. Paste, type or click. Nothing leaves the page.</p>
+    </div>
+  </section>
+  <section class="wrap l-body">
+    <div class="l-tools">
+      <article class="l-tool reveal" id="size">
+        <small>Email size checker</small>
+        <p class="l-note">Gmail clips emails over about 102 KB and hides the rest. Paste your HTML to see how close you are.</p>
+        <textarea id="html" spellcheck="false" aria-label="Email HTML" placeholder="Paste your email HTML here"></textarea>
+        <div class="meter" role="img" aria-label="Size against the 102 KB limit"><i id="bar"></i></div>
+        <p class="verdict" id="verdict">Paste some HTML to start.</p>
+        <div class="stats"><div><b id="kb">0</b><span>KB of HTML</span></div><div><b id="cm">0</b><span>comments</span></div><div><b id="im">0</b><span>images without alt</span></div></div>
+        <p class="l-note small">Counts the text you paste. Your email platform adds tracking to links, which makes the real file longer, so aim for under about 80 KB.</p>
+      </article>
+      <article class="l-tool reveal" id="utm">
+        <small>UTM link builder</small>
+        <p class="l-note">Consistent campaign links. It lowercases and tidies the values so the same campaign doesn't show up under three names.</p>
+        <label for="u0">Page URL</label><input id="u0" value="https://example.com/offer">
+        <label for="u1">Source</label><input id="u1" value="Newsletter">
+        <label for="u2">Medium</label><input id="u2" value="email">
+        <label for="u3">Campaign</label><input id="u3" value="Spring Sale 2026">
+        <div class="out" id="uout" aria-live="polite"></div>
+        <p class="warn" id="uwarn"></p>
+        <button class="btn" type="button" id="ucopy">Copy link</button>
+      </article>
+      <article class="l-tool reveal" id="ab">
+        <small>A/B test size</small>
+        <p class="l-note">How many people do you need in each group to spot a real difference?</p>
+        <label for="s0">Current conversion rate (%)</label><input id="s0" type="number" value="3" step="0.1" min="0.1" max="99">
+        <label for="s1">Smallest lift you care about (percentage points)</label><input id="s1" type="number" value="0.5" step="0.1" min="0.1">
+        <div class="out big" id="sout" aria-live="polite"></div>
+        <p class="l-note small">A rule of thumb for 80% power and 5% significance: n ≈ 16 × p(1−p) ÷ lift², per group. Good for planning. For a real test, use a proper calculator and decide the sample size before you start.</p>
+      </article>
+    </div>
+  </section>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© <span id="yr"></span> Utkarsh Som</span>
+    <a href="../../lab/">Lab</a>
+    <a href="../../index.html">← Back to portfolio</a>
+  </div>
+</footer>
+
+<script src="../../lab/lab.js"></script>
+</body>
+</html>
