@@ -305,3 +305,15 @@ pre code{background:none;border:0;padding:0;font-size:inherit}
 .upnext p{font-size:15px;color:var(--mute)}
 .a-body a.upnext{text-decoration:none;color:inherit}
 .a-body .upnext p{font-size:15px;line-height:1.5}
+
+/* on the list */
+.upcoming{margin-top:36px;padding:30px;border:1px solid var(--line);border-radius:22px;background:var(--surface);display:grid;grid-template-columns:1fr 1.4fr;gap:26px 36px;align-items:start}
+.up-head small{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.up-head p{margin-top:10px;color:var(--mute);font-size:15px;max-width:300px}
+.up-list{display:flex;flex-direction:column}
+.up-list li{display:flex;flex-direction:column;gap:2px;padding:14px 0;border-top:1px solid var(--line)}
+.up-list li:first-child{border-top:0;padding-top:0}
+.up-list b{font:400 24px/1.1 var(--serif);letter-spacing:-.01em}
+.up-list span{font-size:14px;color:var(--mute)}
+.up-actions{grid-column:1/-1;display:flex;gap:10px;flex-wrap:wrap;padding-top:6px;border-top:1px solid var(--line);margin-top:4px;padding-top:20px}
+@media (max-width:760px){.upcoming{grid-template-columns:1fr;padding:22px}}
