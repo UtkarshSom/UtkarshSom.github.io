@@ -255,8 +255,10 @@ pre.d-code{padding:14px;border:1px solid var(--line);border-radius:12px;backgrou
 }
 @media (max-width:760px){
   .kbd-btn{display:none}
-  .nav nav a:not([href="journal/"]):not(.here){display:none}
-  .nav{gap:12px}
+  .nav{gap:6px;padding:6px 8px 6px 14px;width:calc(100% - 20px)}
+  .nav nav{flex:1;min-width:0;overflow-x:auto;scrollbar-width:none;-webkit-overflow-scrolling:touch}
+  .nav nav::-webkit-scrollbar{display:none}
+  .nav nav a{flex:none;font-size:13px;padding:7px 11px}
   .metrics .grid{grid-template-columns:1fr 1fr}
   .metric{border-left:0;padding:30px 0;border-top:1px solid var(--line)}
   .metric:nth-child(-n+2){border-top:0}
