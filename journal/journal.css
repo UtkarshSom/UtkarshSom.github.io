@@ -267,3 +267,8 @@ pre code{background:none;border:0;padding:0;font-size:inherit}
 .a-foot::before{content:"";position:absolute;left:50%;bottom:-120px;width:min(900px,100vw);height:340px;transform:translateX(-50%);background:radial-gradient(70% 80% at 50% 100%,color-mix(in srgb,var(--accent) 12%,transparent),transparent 70%);pointer-events:none;z-index:-1}
 .posts{position:relative}
 .posts::after{content:"";position:absolute;left:50%;bottom:-100px;width:min(900px,100vw);height:300px;transform:translateX(-50%);background:radial-gradient(70% 80% at 50% 100%,color-mix(in srgb,var(--accent) 9%,transparent),transparent 70%);pointer-events:none;z-index:-1}
+
+/* moving network background, same as the homepage hero */
+.w-hero,.a-head{position:relative;overflow:hidden}
+.jbg{position:absolute;inset:0;width:100%;height:100%;-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,#000 55%,transparent 100%)}
+.w-hero>.wrap,.a-head>.wrap{position:relative}

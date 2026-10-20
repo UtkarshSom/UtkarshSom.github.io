@@ -27,6 +27,51 @@
     el.style.setProperty('--my', e.clientY - r.top + 'px');
   }));
 
+  /* moving network background, adapted from the homepage hero */
+  const cvs = $('.jbg');
+  if (cvs) {
+    const g = cvs.getContext('2d'), reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    const css = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+    let w, h, dpr, pts = [], mx = -999, my = -999, accent = css('--accent'), line = css('--mute'), running = true;
+    const init = () => {
+      dpr = Math.min(devicePixelRatio || 1, 2);
+      w = cvs.clientWidth; h = cvs.clientHeight;
+      cvs.width = w * dpr; cvs.height = h * dpr; g.setTransform(dpr, 0, 0, dpr, 0, 0);
+      const n = Math.min(90, Math.floor(w * h / 14000));
+      pts = Array.from({ length: n }, () => ({ x: Math.random() * w, y: Math.random() * h, vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25 }));
+    };
+    const draw = () => {
+      if (running) requestAnimationFrame(draw);
+      g.clearRect(0, 0, w, h);
+      for (const p of pts) {
+        if (!reduce) {
+          p.x += p.vx; p.y += p.vy;
+          if (p.x < 0 || p.x > w) p.vx *= -1;
+          if (p.y < 0 || p.y > h) p.vy *= -1;
+          const dx = p.x - mx, dy = p.y - my, d = Math.hypot(dx, dy);
+          if (d < 140) { p.x += dx / d * 1.6; p.y += dy / d * 1.6; }
+        }
+      }
+      for (let i = 0; i < pts.length; i++) {
+        const a = pts[i];
+        for (let j = i + 1; j < pts.length; j++) {
+          const b = pts[j], d = Math.hypot(a.x - b.x, a.y - b.y);
+          if (d < 130) { g.globalAlpha = (1 - d / 130) * .22; g.strokeStyle = line; g.beginPath(); g.moveTo(a.x, a.y); g.lineTo(b.x, b.y); g.stroke(); }
+        }
+        const m = Math.hypot(a.x - mx, a.y - my);
+        g.globalAlpha = m < 180 ? .95 : .45; g.fillStyle = m < 180 ? accent : line;
+        g.beginPath(); g.arc(a.x, a.y, m < 180 ? 2.4 : 1.4, 0, 7); g.fill();
+      }
+      g.globalAlpha = 1;
+    };
+    cvs.parentElement.addEventListener('mousemove', e => { const r = cvs.getBoundingClientRect(); mx = e.clientX - r.left; my = e.clientY - r.top; });
+    cvs.parentElement.addEventListener('mouseleave', () => { mx = my = -999; });
+    new MutationObserver(() => { accent = css('--accent'); line = css('--mute'); }).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+    new IntersectionObserver(([e]) => { const was = running; running = e.isIntersecting; if (running && !was) draw(); }).observe(cvs);
+    addEventListener('resize', init);
+    init(); draw();
+  }
+
   const bar = $('.progress');
   const onScroll = () => {
     const h = document.documentElement;
