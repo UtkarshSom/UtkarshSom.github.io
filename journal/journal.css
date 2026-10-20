@@ -257,3 +257,13 @@ pre code{background:none;border:0;padding:0;font-size:inherit}
 .reco img{width:56px;height:74px}
 .reco li{grid-template-columns:44px 56px 1fr}
 .pm-art{width:58px;height:77px}
+
+/* glows that match the homepage */
+.post-row{position:relative;isolation:isolate}
+.post-row::before{content:"";position:absolute;inset:0 -14px;border-radius:18px;background:radial-gradient(420px circle at var(--mx,50%) var(--my,50%),color-mix(in srgb,var(--accent) 10%,transparent),transparent 60%);opacity:0;transition:opacity .3s;pointer-events:none;z-index:-1}
+.post-row:hover::before{opacity:1}
+.callout,.spec,.pdata,.prule{position:relative}
+.a-foot{position:relative;margin-top:3.2em;padding:56px 0 8px;border-top:1px solid var(--line)}
+.a-foot::before{content:"";position:absolute;left:50%;bottom:-120px;width:min(900px,100vw);height:340px;transform:translateX(-50%);background:radial-gradient(70% 80% at 50% 100%,color-mix(in srgb,var(--accent) 12%,transparent),transparent 70%);pointer-events:none;z-index:-1}
+.posts{position:relative}
+.posts::after{content:"";position:absolute;left:50%;bottom:-100px;width:min(900px,100vw);height:300px;transform:translateX(-50%);background:radial-gradient(70% 80% at 50% 100%,color-mix(in srgb,var(--accent) 9%,transparent),transparent 70%);pointer-events:none;z-index:-1}

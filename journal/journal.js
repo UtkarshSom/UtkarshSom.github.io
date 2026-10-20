@@ -9,6 +9,24 @@
     store('theme', t);
   });
 
+  const cur = $('.cursor');
+  if (cur && matchMedia('(hover:hover) and (pointer:fine)').matches) {
+    let x = 0, y = 0, cx = 0, cy = 0;
+    addEventListener('mousemove', e => { x = e.clientX; y = e.clientY; cur.classList.add('live'); });
+    (function loop() {
+      cx += (x - cx) * .2; cy += (y - cy) * .2;
+      cur.style.transform = `translate(${cx}px,${cy}px)`;
+      requestAnimationFrame(loop);
+    })();
+    document.addEventListener('mouseover', e => cur.classList.toggle('hover', !!e.target.closest('a,button,.post-row,.reader,.step,.switch')));
+  }
+
+  document.querySelectorAll('.post-row').forEach(el => el.addEventListener('mousemove', e => {
+    const r = el.getBoundingClientRect();
+    el.style.setProperty('--mx', e.clientX - r.left + 'px');
+    el.style.setProperty('--my', e.clientY - r.top + 'px');
+  }));
+
   const bar = $('.progress');
   const onScroll = () => {
     const h = document.documentElement;
