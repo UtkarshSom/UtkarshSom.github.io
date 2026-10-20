@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI in CRM is aimed at the wrong job | Utkarsh Som</title>
+<meta name="description" content="Most teams point AI at the copy. I would point it at the decisions, with demos of the ML behind them.">
+<meta name="theme-color" content="#0b0b0c">
+<meta property="og:title" content="AI in CRM is aimed at the wrong job">
+<meta property="og:description" content="Most teams point AI at the copy. I would point it at the decisions, with demos of the ML behind them.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Utkarsh Som">
+<meta property="og:image:alt" content="Title card: Is your AI writing your emails or deciding who gets them? Subject line options crossed out beside a note asking who gets which">
+<meta property="og:url" content="https://utkashsom.github.io/journal/ai-in-crm.html">
+<meta property="og:image" content="https://utkashsom.github.io/journal/img/og-ai-crm.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Utkarsh Som">
+<link rel="canonical" href="https://utkashsom.github.io/journal/ai-in-crm.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b0b0c'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='37' text-anchor='middle' letter-spacing='-1'%3E%3Ctspan fill='%23ecebe6'%3EU%3C/tspan%3E%3Ctspan fill='%23d4ff5a' font-style='italic'%3ES%3C/tspan%3E%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="journal.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <a href="../index.html" class="logo" aria-label="Utkarsh Som, home">U<em>S</em></a>
+  <nav aria-label="Primary">
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#projects">Projects</a>
+    <a href="../index.html#stack">Stack</a>
+    <a href="./" class="here" aria-current="page">Journal</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="theme-toggle" aria-label="Toggle light and dark theme">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M5.3 18.7l1.5-1.5M17.2 6.8l1.5-1.5"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <header class="a-head">
+    <div class="wrap">
+      <a class="back" href="./">← Journal</a>
+      <h1 class="reveal">AI in CRM is aimed at the <em>wrong job.</em></h1>
+      <p class="dek reveal">Most teams point it at the copy. I would point it at the decisions.</p>
+      <div class="byline reveal"><span><b>Utkarsh Som</b></span><span>20 Oct 2026</span><span>9 min read</span><span>CRM · AI · ML</span></div>
+    </div>
+  </header>
+
+  <article class="a-body">
+    <p class="lead reveal">Ask a CRM team how they use AI and you'll hear the same few answers. Faster drafts. A list of subject line options. Images on demand. I use those too. They save real time. But they're the easy part of the job, and they leave the hard part exactly where it was.</p>
+
+    <h2 class="reveal">Copy was never <em>the bottleneck</em></h2>
+
+    <p class="reveal">The last email that underperformed probably didn't fail on wording. It went to the wrong people, or the right people at the wrong time. Better phrasing fixes neither.</p>
+
+    <p class="reveal">Say a shop logs 200K restock-interest signups in a year, and four out of five of those people never buy. Rewriting the email won't move that. A trigger that reaches them at the right moment might. That's a decision problem. (The numbers are made up to make the point.) The template side is in <a href="personalisation-with-html.html">the personalisation post</a>.</p>
+
+    <h2 class="reveal">Why the decision work <em>gets cut</em></h2>
+
+    <p class="reveal">A precise audience is fiddly to build: joins, time windows, exclusions, sometimes a score. Under a deadline, "opened in the last 30 days" wins because it takes two minutes. This is where AI helps. Describe who you mean in plain words and it builds conditions you can read and check. Three examples:</p>
+
+    <figure class="aid reveal" id="aidemo">
+      <div class="try-bar">
+        <span class="try-title">Try it: pick an audience</span>
+        <div class="readers" role="group" aria-label="Choose an audience">
+          <button type="button" class="reader on" data-i="0" aria-pressed="true">Basket repeaters</button>
+          <button type="button" class="reader" data-i="1" aria-pressed="false">Deal hunters</button>
+          <button type="button" class="reader" data-i="2" aria-pressed="false">Cooling off</button>
+        </div>
+      </div>
+      <p class="ask" id="ask"></p>
+      <div class="aid-cols">
+        <div class="crowd">
+          <div class="lbl-row">Who matches <small><b id="cn">150</b> of 150 customers</small></div>
+          <div class="crowd-card"><svg id="crowd" viewBox="0 0 200 300" role="img" aria-label="150 customers shown as dots. Customers matching the chosen conditions are highlighted"></svg></div>
+        </div>
+        <div>
+          <div class="lbl-row">Conditions it builds <small>click to switch one off</small></div>
+          <ul class="steps" id="steps"></ul>
+          <div class="lbl-row act-lbl">What you'd do with them</div>
+          <p class="prule" id="aact"></p>
+        </div>
+      </div>
+      <figcaption>An illustration with made-up customers and example audiences. It isn't a live model.</figcaption>
+    </figure>
+
+    <p class="reveal">The third one isn't a simple filter. It compares each person with their own past, which is exactly the kind of audience that gets skipped because it takes a while to set up.</p>
+
+    <h2 class="reveal">The ML side: <em>models that make the call</em></h2>
+
+    <p class="reveal">AI doesn't have to mean a language model. The models I've built all answer the same question: who should get what. Here are three of them as small demos. The data is made up and the maths is simplified, so treat them as pictures of the idea. Fuller versions are in the projects section of <a href="../index.html#projects">my homepage</a>.</p>
+
+    <h3 class="ml-h reveal">1. Segmentation: sort customers by how they behave</h3>
+    <p class="reveal">Recency, frequency and spend turn a customer list into groups you can treat differently. I've used it on very large customer lists to set personalisation tiers. Move the two lines below and watch customers change tier.</p>
+
+    <figure class="ml reveal" id="rfmdemo">
+      <div class="try-bar">
+        <span class="try-title">Try it: move the lines</span>
+        <label class="rng">Recent means within <b id="rfm-rv">45</b> days<input type="range" id="rfm-r" min="10" max="150" value="45"></label>
+        <label class="rng">Frequent means <b id="rfm-fv">3</b> or more orders<input type="range" id="rfm-f" min="1" max="8" value="3"></label>
+      </div>
+      <div class="ml-cols">
+        <svg id="rfm-svg" viewBox="0 0 520 320" role="img" aria-label="Customers plotted by days since last order and number of orders"></svg>
+        <ul class="legend" id="rfm-leg"></ul>
+      </div>
+      <figcaption>60 made-up customers. Left is recent, up is frequent.</figcaption>
+    </figure>
+
+    <h3 class="ml-h reveal">2. Recommendation: pick what to show next</h3>
+    <p class="reveal">A hybrid recommender blends two signals: how similar a product is to what someone likes, and how popular it is overall. In an A/B test, an engine like this beat showing everyone the same products. Pick some tastes and slide the blend.</p>
+
+    <figure class="ml reveal" id="recodemo">
+      <div class="try-bar">
+        <span class="try-title">Try it: tune the blend</span>
+        <div class="readers" role="group" aria-label="Shopper tastes" id="reco-tastes">
+          <button type="button" class="reader on" data-t="0" aria-pressed="true">Open worlds</button>
+          <button type="button" class="reader" data-t="1" aria-pressed="false">Horror</button>
+          <button type="button" class="reader" data-t="2" aria-pressed="false">Co-op</button>
+        </div>
+        <label class="rng">Popularity weight <b id="reco-wv">30%</b><input type="range" id="reco-w" min="0" max="100" value="30"></label>
+      </div>
+      <ol class="reco" id="reco-list"></ol>
+      <figcaption>Scores are made up for the demo. Turn the weight up and popular games climb whatever you like.</figcaption>
+    </figure>
+
+    <h3 class="ml-h reveal">3. Churn: who's about to leave</h3>
+    <p class="reveal">A churn model scores how likely each customer is to go quiet, then your rules turn that score into action. I built classifiers with LightGBM and scikit-learn for this. The demo below is a simple hand-weighted score that behaves like one, so you can see the risk and its drivers move.</p>
+
+    <figure class="ml reveal" id="churndemo">
+      <div class="try-bar">
+        <span class="try-title">Try it: change the customer</span>
+      </div>
+      <div class="ml-cols">
+        <div class="sliders">
+          <label class="rng wide">Days since last order <b id="ch-dv">60</b><input type="range" id="ch-d" min="0" max="180" value="60"></label>
+          <label class="rng wide">Orders in the last 90 days <b id="ch-ov">1</b><input type="range" id="ch-o" min="0" max="8" value="1"></label>
+          <label class="rng wide">Emails clicked in the last 30 days <b id="ch-cv">1</b><input type="range" id="ch-c" min="0" max="10" value="1"></label>
+        </div>
+        <div class="gauge">
+          <div class="gauge-n"><span id="ch-p">46</span><small>% churn risk</small></div>
+          <ul class="drivers" id="ch-drv"></ul>
+          <p class="prule" id="ch-act"></p>
+        </div>
+      </div>
+      <figcaption>A hand-weighted logistic score on made-up inputs, not a trained model.</figcaption>
+    </figure>
+
+    <p class="reveal">None of these write a word. All of them decide something. That's where I'd point AI first.</p>
+
+    <h2 class="reveal">Where I'd <em>be careful</em></h2>
+
+    <ul class="reveal">
+      <li><b>It can be confidently wrong.</b> A rule that reads well can still be built on the wrong field or the wrong time window. Read every condition.</li>
+      <li><b>Check the size before you save.</b> If an audience is 40 people or 4 million, something is off.</li>
+      <li><b>Look at real people in it.</b> Pull a sample and ask whether they're who you meant.</li>
+      <li><b>Mind consent.</b> A clever segment is still only for people who've agreed to hear from you.</li>
+      <li><b>Test it against the simple version.</b> Keep a control group. If the clever audience doesn't beat "opened in the last 30 days", you've learned something useful anyway.</li>
+    </ul>
+
+    <div class="callout reveal">
+      <h3>If you want to try this</h3>
+      <ul>
+        <li>Pick one audience you've always simplified.</li>
+        <li>Describe it in plain language and let the tool build it.</li>
+        <li>Check the logic, the size and a sample of people.</li>
+        <li>Send it against your usual audience with a holdout.</li>
+      </ul>
+    </div>
+
+    <p class="reveal">My view is simple. If AI saves you time on copy, good. Then spend that time on the decisions, because that's where the results are. Point it at the audience first and the words second.</p>
+
+    <div class="a-foot reveal">
+      <p>Where does AI sit in your CRM, in the copy or in the decisions? I'd like to hear it. Message me on LinkedIn.</p>
+      <div class="share">
+        <a class="btn primary" href="https://www.linkedin.com/in/utkarshsom" target="_blank" rel="noopener">Message me on LinkedIn ↗</a>
+        <button class="btn ghost" id="copy-link" type="button">Copy link</button>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© <span id="yr"></span> Utkarsh Som</span>
+    <a href="./">← Journal</a>
+    <a href="#top" onclick="scrollTo({top:0});return false">Back to top ↑</a>
+  </div>
+</footer>
+
+<script src="journal.js"></script>
+</body>
+</html>

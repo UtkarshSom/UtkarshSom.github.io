@@ -1,0 +1,202 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your email is either a picture or a product | Utkarsh Som</title>
+<meta name="description" content="Same newsletter, built two ways. What changes when an email is real HTML and CSS instead of one flat image.">
+<meta name="theme-color" content="#0b0b0c">
+<meta property="og:title" content="Your email is either a picture or a product">
+<meta property="og:description" content="Same newsletter, built two ways. What changes when an email is real HTML and CSS instead of one flat image.">
+<meta property="og:type" content="article">
+<meta property="og:site_name" content="Utkarsh Som">
+<meta property="og:image:alt" content="Title card: Your email is either a picture or a product, next to two views of a newsletter, one with images and one with images off">
+<meta property="og:url" content="https://utkashsom.github.io/journal/email-html-vs-images.html">
+<meta property="og:image" content="https://utkashsom.github.io/journal/img/og-email.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="author" content="Utkarsh Som">
+<link rel="canonical" href="https://utkashsom.github.io/journal/email-html-vs-images.html">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%230b0b0c'/%3E%3Ctext x='32' y='46' font-family='Georgia,serif' font-size='37' text-anchor='middle' letter-spacing='-1'%3E%3Ctspan fill='%23ecebe6'%3EU%3C/tspan%3E%3Ctspan fill='%23d4ff5a' font-style='italic'%3ES%3C/tspan%3E%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Instrument+Serif:ital@0;1&family=Inter+Tight:wght@300;400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css">
+<link rel="stylesheet" href="journal.css">
+<script>try{var t=localStorage.getItem('theme');if(t)document.documentElement.dataset.theme=t}catch(e){}</script>
+</head>
+<body>
+<div class="grain" aria-hidden="true"></div>
+<div class="progress" aria-hidden="true"></div>
+
+<header class="nav">
+  <a href="../index.html" class="logo" aria-label="Utkarsh Som, home">U<em>S</em></a>
+  <nav aria-label="Primary">
+    <a href="../index.html#work">Work</a>
+    <a href="../index.html#projects">Projects</a>
+    <a href="../index.html#stack">Stack</a>
+    <a href="./" class="here" aria-current="page">Journal</a>
+    <a href="../index.html#contact">Contact</a>
+  </nav>
+  <div class="nav-actions">
+    <button class="icon-btn" id="theme-toggle" aria-label="Toggle light and dark theme">
+      <svg viewBox="0 0 24 24" width="18" height="18" fill="none" stroke="currentColor" stroke-width="1.6"><circle cx="12" cy="12" r="4.2"/><path d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.5 1.5M17.2 17.2l1.5 1.5M5.3 18.7l1.5-1.5M17.2 6.8l1.5-1.5"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <header class="a-head">
+    <div class="wrap">
+      <a class="back" href="./">← Journal</a>
+      <h1 class="reveal">Your email is either a <em>picture</em> or a <em>product.</em></h1>
+      <p class="dek reveal">Same newsletter, built two ways. Here's what changes in the inbox.</p>
+      <div class="byline reveal"><span><b>Utkarsh Som</b></span><span>20 Oct 2026</span><span>6 min read</span><span>Email · HTML/CSS</span></div>
+    </div>
+  </header>
+
+  <article class="a-body">
+    <p class="lead reveal">Open a promo email and try to select the headline. If nothing highlights, it's a picture of an email. Someone designed it in a graphics tool, exported one big image and dropped it in the body. In the preview it looks fine. In a real inbox it falls apart in small ways, and you usually don't hear about it.</p>
+
+    <p class="reveal">I work in CRM, where one newsletter often goes out in several languages and currencies. That's where I started caring about this. So here's an example send for a made-up game shop, built as proper HTML and CSS. You can see it below.</p>
+
+    <p class="reveal">If we'd exported it as a single JPG it would look exactly the same in your inbox. That's why people get away with it. The difference only shows up when something goes wrong, and in email something usually does.</p>
+
+    <h2 class="reveal">What happens with <em>images off</em></h2>
+
+    <p class="reveal">Outlook holds images back until the reader clicks to allow them, and plenty of people never do. Try it below. Flip the switch and compare the two.</p>
+
+    <figure class="fig-wide tryit reveal" id="imgdemo" data-state="on">
+      <div class="try-bar">
+        <span class="try-title">Try it: switch images off</span>
+        <button class="switch" id="img-switch" role="switch" aria-checked="true" aria-label="Images in the email">
+          <span class="sw-lbl on">Images on</span>
+          <span class="sw-track"><span class="sw-knob"></span></span>
+          <span class="sw-lbl off">Images off</span>
+        </button>
+      </div>
+      <div class="try-cols">
+        <div>
+          <div class="lbl-row"><i>A</i> One flat image</div>
+          <div class="win">
+            <div class="layer live"><img src="img/email-live-1.jpg" alt="" width="700" height="1575" loading="lazy"></div>
+            <div class="layer blk"><svg width="40" height="40" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="4" width="18" height="16" rx="2"/><circle cx="9" cy="10" r="1.6"/><path d="m4 18 5.5-5.5 4 4 2.5-2.5L20 18"/></svg><span>Images are blocked.<br>The whole email was one image,<br>so this is all the reader gets.</span></div>
+          </div>
+        </div>
+        <div class="good">
+          <div class="lbl-row good"><i>B</i> HTML &amp; CSS</div>
+          <div class="win">
+            <div class="layer live"><img src="img/email-live-1.jpg" alt="" width="700" height="1575" loading="lazy"></div>
+            <div class="layer offl"><img src="img/email-off-1.jpg" alt="" width="700" height="1575" loading="lazy"></div>
+          </div>
+        </div>
+      </div>
+      <figcaption>Images off. A is a grey box. B still has its prices, store names and buy buttons, with the alt text where each picture was.</figcaption>
+    </figure>
+
+    <p class="reveal">If the email is one image, the reader gets a grey box and nothing to act on. With text, they can still see what's on offer and click through.</p>
+
+    <h2 class="reveal">What you get from <em>real code</em></h2>
+
+    <ul class="reveal">
+      <li><b>Prices are text.</b> Changing a send from GBP to EUR, or English to German, means editing a line. You don't rebuild the artwork. When one campaign goes to several markets that adds up fast.</li>
+      <li><b>Buttons are separate links.</b> You can track each one. With a single image you only know someone clicked, not on what.</li>
+      <li><b>Screen readers and translation tools work.</b> They need real text, and a JPG gives them nothing.</li>
+      <li><b>Typos are cheap.</b> Fix the line and resend. With an image you reopen the design file and export again.</li>
+      <li><b>Content can change per person.</b> Names, products and offers come from your data instead of being baked into pixels.</li>
+    </ul>
+
+    <p class="reveal">That last point deserves its own post, so <a href="personalisation-with-html.html">I wrote one</a>.</p>
+
+    <blockquote class="reveal">Use images to support the message, not to be the message.</blockquote>
+
+    <h2 class="reveal">Two habits that <em>help</em></h2>
+
+    <p class="reveal">Images still belong in email. Product shots are most of what makes a send feel like a brand. These two habits stop them from being a single point of failure.</p>
+
+    <p class="reveal"><b>Write alt text for every image.</b> When images are blocked, many clients show the alt text where the image would be, so the reader still gets the point.</p>
+<pre class="reveal"><code><span class="t">&lt;img</span> src=<span class="s">"hero.jpg"</span> width=<span class="s">"700"</span>
+     alt=<span class="s">"Summer sale: up to 50% off PC games"</span>
+     style=<span class="s">"display:block;width:100%;height:auto"</span><span class="t">&gt;</span></code></pre>
+
+    <p class="reveal"><b>Build the button from a table cell, not an image.</b> A background colour on a cell renders even when images don't.</p>
+<pre class="reveal"><code><span class="t">&lt;td</span> bgcolor=<span class="s">"#1fd18a"</span> style=<span class="s">"border-radius:99px"</span><span class="t">&gt;</span>
+  <span class="t">&lt;a</span> href=<span class="s">"https://example.com/offer"</span>
+     style=<span class="s">"display:inline-block;padding:13px 26px;
+            font:700 14px Arial,sans-serif;color:#0b0b0c;
+            text-decoration:none"</span><span class="t">&gt;</span>SHOP NOW<span class="t">&lt;/a&gt;</span>
+<span class="t">&lt;/td&gt;</span></code></pre>
+
+    <h2 class="reveal">Mind the <em>size</em> too</h2>
+
+    <p class="reveal">Blocked images are one way an email fails. Heavy is another. Gmail clips HTML over about 102 KB and tucks the rest behind a "View entire message" link, which can bury your footer and unsubscribe link. Big images slow the first open, mostly on mobile data. These are the limits I work to.</p>
+
+    <div class="spec reveal" role="table" aria-label="Email size targets">
+      <div class="spec-row head" role="row"><span role="columnheader">What</span><span role="columnheader">Aim for</span><span role="columnheader">Hard limit</span></div>
+      <div class="spec-row" role="row"><span role="cell">HTML</span><span role="cell">80 KB or less</span><span role="cell">~102 KB</span></div>
+      <div class="spec-row" role="row"><span role="cell">Hero image</span><span role="cell">120–200 KB</span><span role="cell">Try not to pass 250 KB</span></div>
+      <div class="spec-row" role="row"><span role="cell">Product tile image</span><span role="cell">40–90 KB each</span><span role="cell">120 KB</span></div>
+      <div class="spec-row" role="row"><span role="cell">Logo</span><span role="cell">10–30 KB each</span><span role="cell"></span></div>
+      <div class="spec-row" role="row"><span role="cell">Social and UI icons</span><span role="cell">2–8 KB each</span><span role="cell"></span></div>
+      <div class="spec-row" role="row"><span role="cell">All images together</span><span role="cell">Near 1.0 MB</span><span role="cell">1.5 MB</span></div>
+      <div class="spec-row" role="row"><span role="cell">CSS in the style tag</span><span role="cell">15 KB or less</span><span role="cell"></span></div>
+    </div>
+
+    <p class="reveal">Skip webfonts in email and let system fonts do the work. They add a download for little gain, and plenty of clients ignore them anyway.</p>
+
+    <p class="reveal">Only the 102 KB figure is Gmail's own. The rest are targets I use. I aim for 80 KB on the HTML because your email platform rewrites every link with tracking, which makes the file longer after you've checked it. They're rules of thumb, so adjust them to your audience.</p>
+
+    <h2 class="reveal">What a typical send <em>weighs</em></h2>
+
+    <p class="reveal">To show the scale, here are illustrative numbers for a newsletter built with the usual mistakes. It's made up, but I've seen all of these problems in real sends.</p>
+
+    <div class="spec audit reveal" role="table" aria-label="Illustrative size audit of a newsletter">
+      <div class="spec-row head" role="row"><span role="columnheader">What</span><span role="columnheader">Before</span><span role="columnheader">After a quick fix</span></div>
+      <div class="spec-row" role="row"><span role="cell">HTML</span><span role="cell">126 KB</span><span role="cell">53 KB</span></div>
+      <div class="spec-row" role="row"><span role="cell">Hero image</span><span role="cell">240 KB</span><span role="cell">90 KB</span></div>
+      <div class="spec-row" role="row"><span role="cell">Product tiles (8)</span><span role="cell">180–520 KB each</span><span role="cell">30–60 KB each</span></div>
+      <div class="spec-row" role="row"><span role="cell">Social icons (4)</span><span role="cell">160–210 KB each</span><span role="cell">about 1 KB each</span></div>
+      <div class="spec-row" role="row"><span role="cell">All images together</span><span role="cell">3.9 MB</span><span role="cell">0.6 MB</span></div>
+    </div>
+
+    <p class="reveal">The product tiles are usually the big one: large PNGs shown at a fraction of their size. Re-saving them as JPEGs at twice the display width keeps them sharp on high-density screens and cuts the weight to about a tenth. Small logos and social icons are the same story, like a 1080 pixel PNG shown at 30 pixels. Nothing about the design changes. The file just stops carrying pixels nobody sees.</p>
+
+    <p class="reveal">The HTML often crosses Gmail's 102 KB line before the platform adds any tracking. Most of it is indentation and comments. Stripping them, while keeping the Outlook conditional blocks, can cut the file by more than half.</p>
+
+    <p class="reveal">Treat the numbers as an illustration. Measure your own send, and check how the smaller versions render before you ship them.</p>
+
+    <div class="callout reveal">
+      <h3>Before you hit send</h3>
+      <ul>
+        <li>Headlines, prices and buttons stay as text.</li>
+        <li>Images carry products and mood.</li>
+        <li>Every image has alt text and a set width.</li>
+        <li>HTML under 102 KB, images as light as you can get them.</li>
+        <li>Send yourself a test with images off.</li>
+      </ul>
+    </div>
+
+    <p class="reveal">If your emails are one exported image today, you don't need to rebuild everything. Redo the headline and the button as text, keep the hero image, and send a test with images off. It takes a minute and you'll see the difference straight away.</p>
+
+    <div class="a-foot reveal">
+      <p>Still sending one big JPG? I'd like to know why. Message me on LinkedIn.</p>
+      <div class="share">
+        <a class="btn primary" href="https://www.linkedin.com/in/utkarshsom" target="_blank" rel="noopener">Message me on LinkedIn ↗</a>
+        <button class="btn ghost" id="copy-link" type="button">Copy link</button>
+      </div>
+    </div>
+  </article>
+</main>
+
+<footer class="foot">
+  <div class="wrap">
+    <span>© <span id="yr"></span> Utkarsh Som</span>
+    <a href="./">← All entries</a>
+    <a href="#top" onclick="scrollTo({top:0});return false">Back to top ↑</a>
+  </div>
+</footer>
+
+<script src="journal.js"></script>
+</body>
+</html>
