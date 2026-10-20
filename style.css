@@ -278,7 +278,7 @@ pre.d-code{padding:14px;border:1px solid var(--line);border-radius:12px;backgrou
 /* recommendation */
 .rec-sec{padding-top:0}
 .rec{display:grid;grid-template-columns:.8fr 1.2fr;gap:clamp(28px,5vw,64px);align-items:start;padding-top:clamp(56px,8vw,96px);border-top:1px solid var(--line)}
-.rec-side{position:sticky;top:96px}
+.rec-side{position:static}
 .rec-side h2{margin:18px 0 26px}
 .rec-badge{display:inline-flex;align-items:center;gap:9px;padding:6px 13px;border:1px solid var(--line);border-radius:99px;font:500 11px var(--mono);letter-spacing:.08em;text-transform:uppercase;color:var(--mute);transition:.2s}
 .rec-badge:hover{border-color:var(--accent);color:var(--text)}
