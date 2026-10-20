@@ -198,22 +198,23 @@
   const reco = $('#recodemo');
   if (reco) {
     const G = [
-      { n: 'Ember Vale', img: 'img/cover-ember-vale.jpg', s: [.95, .1, .5], p: .8 },
-      { n: 'Hollow Pines', img: 'img/cover-hollow-pines.jpg', s: [.6, .95, 0], p: .5 },
-      { n: 'Skyward Crew', img: 'img/cover-skyward-crew.jpg', s: [.3, .1, .95], p: .7 },
-      { n: 'Last Light Station', img: 'img/cover-last-light-station.jpg', s: [.15, .9, .4], p: .9 }
+      { n: "No Man's Sky", img: 'img/game-nomanssky.jpg', s: [.95, .05, .8], p: .8 },
+      { n: 'The Blood of Dawnwalker', img: 'img/game-dawnwalker.jpg', s: [.7, .6, 0], p: .5 },
+      { n: 'Gears of War: E-Day', img: 'img/game-gears.jpg', s: [.1, .5, .9], p: .7 },
+      { n: 'Resident Evil Requiem', img: 'img/game-resident-evil.jpg', s: [.15, .98, .2], p: .9 }
     ];
     const on = new Set([0]), list = $('#reco-list');
     const draw = () => {
       const w = +$('#reco-w').value / 100; $('#reco-wv').textContent = Math.round(w * 100) + '%';
-      const rows = G.map(g => { const sel = [...on], sim = sel.length ? sel.reduce((a, t) => a + g.s[t], 0) / sel.length : 0; return { g, sim, sc: (1 - w) * sim + w * g.p }; }).sort((a, b) => b.sc - a.sc);
+      const sel = [...on], none = !sel.length;
+      const rows = G.map(g => { const sim = none ? 0 : sel.reduce((a, t) => a + g.s[t], 0) / sel.length; return { g, sim, sc: none ? g.p : (1 - w) * sim + w * g.p }; }).sort((a, b) => b.sc - a.sc);
       list.textContent = '';
       rows.forEach(({ g, sim, sc }) => {
         const li = document.createElement('li'), im = document.createElement('img'), d = document.createElement('div');
-        im.src = g.img; im.alt = ''; im.width = 60; im.height = 60;
+        im.src = g.img; im.alt = ''; im.width = 56; im.height = 74;
         d.innerHTML = '<div class="nm"></div><div class="bar"><i></i></div><div class="sc"></div>';
         d.querySelector('.nm').textContent = g.n; d.querySelector('i').style.width = Math.round(sc * 100) + '%';
-        d.querySelector('.sc').textContent = 'blend ' + sc.toFixed(2) + '  =  similarity ' + sim.toFixed(2) + ' and popularity ' + g.p.toFixed(2);
+        d.querySelector('.sc').textContent = none ? 'No tastes picked, so ranked by popularity: ' + g.p.toFixed(2) : 'blend ' + sc.toFixed(2) + '  =  similarity ' + sim.toFixed(2) + ' and popularity ' + g.p.toFixed(2);
         li.append(im, d); list.append(li);
       });
     };
