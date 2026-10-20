@@ -56,10 +56,10 @@
   const pers = $('#pers');
   if (pers) {
     const R = [
-      { name: 'Sarah', lang: 'en', cur: '£', seg: 'Cart abandoner', item: 'Ember Vale', price: '34.99', was: '49.99', left: 3, branch: 'cart', art: 'img/cover-ember-vale.jpg', rule: 'cart.item exists, so show the basket reminder.' },
-      { name: 'Omar', lang: 'en', cur: '$', seg: 'Browser, empty basket', item: 'Hollow Pines', price: '19.99', was: '29.99', branch: 'browse', art: 'img/cover-hollow-pines.jpg', rule: 'No basket, so show what is new instead.' },
-      { name: 'Lena', lang: 'de', cur: '€', seg: 'Pre-order interest', item: 'Skyward Crew', price: '29,99', was: '', branch: 'pre', art: 'img/cover-skyward-crew.jpg', rule: 'language is de and they want a pre-order, so send the German pre-order email.' },
-      { name: '', lang: 'en', cur: '£', seg: 'New subscriber', item: 'Last Light Station', price: '29.99', was: '44.99', branch: 'browse', art: 'img/cover-last-light-station.jpg', rule: 'first_name is empty, so the fallback "there" is used. No basket, so show what is new.' }
+      { name: 'Sarah', lang: 'en', cur: '£', seg: 'Cart abandoner', item: 'The Blood of Dawnwalker', price: '36.99', was: '54.99', left: 3, branch: 'cart', art: 'img/game-dawnwalker.jpg', rule: 'cart.item exists, so show the basket reminder.' },
+      { name: 'Omar', lang: 'en', cur: '$', seg: 'Browser, empty basket', item: "No Man's Sky", price: '14.99', was: '39.99', branch: 'browse', art: 'img/game-nomanssky.jpg', rule: 'No basket, so show what is new instead.' },
+      { name: 'Lena', lang: 'de', cur: '€', seg: 'Pre-order interest', item: 'Gears of War: E-Day', price: '59,99', was: '', branch: 'pre', art: 'img/game-gears.jpg', rule: 'language is de and they want a pre-order, so send the German pre-order email.' },
+      { name: '', lang: 'en', cur: '£', seg: 'New subscriber', item: 'Resident Evil Requiem', price: '29.99', was: '49.99', branch: 'browse', art: 'img/game-resident-evil.jpg', rule: 'first_name is empty, so the fallback "there" is used. No basket, so show what is new.' }
     ];
     const T = {
       en: { hi: 'Hi', fb: 'there',
@@ -69,7 +69,7 @@
         pre: r => ['Vorbestellen und sparen', r.item + ' erscheint bald. Sichere dir jetzt den Vorbestellpreis.', 'Jetzt vorbestellen'] }
     };
     const set = (id, t) => { $('#' + id).textContent = t; };
-    const G = { name: '', lang: 'en', cur: '£', seg: '-', item: 'Last Light Station', price: '29.99', was: '44.99', branch: 'browse', art: 'img/cover-last-light-station.jpg' };
+    const G = { name: '', lang: 'en', cur: '£', seg: '-', item: 'Resident Evil Requiem', price: '29.99', was: '49.99', branch: 'browse', art: 'img/game-resident-evil.jpg' };
     let on = true, cur = 0;
     const render = i => {
       cur = i;
