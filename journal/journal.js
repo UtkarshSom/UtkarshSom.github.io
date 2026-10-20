@@ -37,7 +37,7 @@
       dpr = Math.min(devicePixelRatio || 1, 2);
       w = cvs.clientWidth; h = cvs.clientHeight;
       cvs.width = w * dpr; cvs.height = h * dpr; g.setTransform(dpr, 0, 0, dpr, 0, 0);
-      const n = Math.min(90, Math.floor(w * h / 14000));
+      const n = Math.min(120, Math.floor(w * h / 7000));
       pts = Array.from({ length: n }, () => ({ x: Math.random() * w, y: Math.random() * h, vx: (Math.random() - .5) * .25, vy: (Math.random() - .5) * .25 }));
     };
     const draw = () => {
@@ -59,8 +59,8 @@
           if (d < 130) { g.globalAlpha = (1 - d / 130) * .22; g.strokeStyle = line; g.beginPath(); g.moveTo(a.x, a.y); g.lineTo(b.x, b.y); g.stroke(); }
         }
         const m = Math.hypot(a.x - mx, a.y - my);
-        g.globalAlpha = m < 180 ? .95 : .45; g.fillStyle = m < 180 ? accent : line;
-        g.beginPath(); g.arc(a.x, a.y, m < 180 ? 2.4 : 1.4, 0, 7); g.fill();
+        g.globalAlpha = m < 180 ? .95 : .6; g.fillStyle = m < 180 ? accent : line;
+        g.beginPath(); g.arc(a.x, a.y, m < 180 ? 2.6 : 1.7, 0, 7); g.fill();
       }
       g.globalAlpha = 1;
     };
@@ -307,6 +307,83 @@
       $('#ch-act').textContent = p >= .6 ? 'Start the win-back journey now.' : p >= .3 ? 'Send a gentle nudge and watch what they do.' : 'Leave them alone. They are fine.';
     };
     ['#ch-d', '#ch-o', '#ch-c'].forEach(id => $(id).addEventListener('input', run)); run();
+  }
+
+  /* ---------- journal upgrades ---------- */
+  const POSTS = [
+    { u: 'ai-in-crm.html', t: 'AI in CRM is aimed at the wrong job', d: 'Most teams point AI at the copy. I would point it at the decisions.', m: 9 },
+    { u: 'personalisation-with-html.html', t: 'One template, many emails', d: 'How personalisation works in a plain HTML email.', m: 5 },
+    { u: 'email-html-vs-images.html', t: 'Your email is either a picture or a product', d: 'Same newsletter, built two ways. What changes in the inbox.', m: 6 }
+  ];
+
+  const rows = [...document.querySelectorAll('.post-row')];
+  const sBox = $('#jsearch');
+  if (sBox && rows.length) {
+    const tagSet = new Map();
+    rows.forEach(r => {
+      r._tags = [...r.querySelectorAll('.tags span')].map(x => x.textContent.trim());
+      r._text = (r.textContent || '').toLowerCase();
+      r._tags.forEach(t => tagSet.set(t, (tagSet.get(t) || 0) + 1));
+    });
+    const wrap = $('#jfilters'); let active = 'All';
+    const mk = (label, n) => {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'jchip' + (label === active ? ' on' : '');
+      b.textContent = label; if (n) { const sm = document.createElement('small'); sm.textContent = n; b.append(sm); }
+      b.addEventListener('click', () => { active = label; wrap.querySelectorAll('.jchip').forEach(x => x.classList.toggle('on', x === b)); apply(); });
+      wrap.append(b);
+    };
+    mk('All', rows.length); [...tagSet.entries()].sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])).forEach(([t, n]) => mk(t, n));
+    const apply = () => {
+      const q = sBox.value.trim().toLowerCase(); let shown = 0;
+      rows.forEach(r => {
+        const ok = (active === 'All' || r._tags.includes(active)) && (!q || r._text.includes(q));
+        r.hidden = !ok; if (ok) shown++;
+      });
+      $('#jempty').hidden = shown > 0;
+    };
+    sBox.addEventListener('input', apply);
+  }
+
+  const article = $('.a-body');
+  if (article) {
+    const heads = [...article.querySelectorAll('h2')];
+    const slug = s => s.toLowerCase().replace(/[^a-z0-9]+/g, '-').replace(/^-|-$/g, '');
+    heads.forEach(h => {
+      if (!h.id) h.id = slug(h.textContent);
+      const a = document.createElement('a'); a.className = 'hlink'; a.href = '#' + h.id; a.textContent = '#'; a.setAttribute('aria-label', 'Copy link to this section');
+      a.addEventListener('click', async e => {
+        e.preventDefault(); const url = location.origin + location.pathname + '#' + h.id; history.replaceState(null, '', '#' + h.id);
+        try { await navigator.clipboard.writeText(url); a.textContent = 'copied'; setTimeout(() => a.textContent = '#', 1400); } catch (err) {}
+      });
+      h.prepend(a);
+    });
+    if (heads.length > 2) {
+      const toc = document.createElement('nav'); toc.className = 'toc'; toc.setAttribute('aria-label', 'On this page');
+      toc.innerHTML = '<b>On this page</b>';
+      heads.forEach(h => { const a = document.createElement('a'); a.href = '#' + h.id; a.textContent = h.textContent.replace(/^#|copied/g, '').trim(); toc.append(a); });
+      document.body.append(toc);
+      const links = [...toc.querySelectorAll('a')];
+      const io = new IntersectionObserver(es => es.forEach(e => {
+        if (e.isIntersecting) links.forEach((l, i) => l.classList.toggle('on', heads[i] === e.target));
+      }), { rootMargin: '-15% 0px -70% 0px' });
+      heads.forEach(h => io.observe(h));
+    }
+    const here = location.pathname.split('/').pop() || 'index.html';
+    const i = POSTS.findIndex(p => p.u === here);
+    const nx = POSTS[(i + 1) % POSTS.length];
+    const foot = $('.a-foot');
+    if (foot && i >= 0) {
+      const a = document.createElement('a'); a.className = 'upnext reveal'; a.href = nx.u;
+      a.innerHTML = '<small>Up next</small><h3></h3><p></p>';
+      a.querySelector('h3').textContent = nx.t; a.querySelector('p').textContent = nx.d + ' ' + nx.m + ' min read →';
+      foot.before(a);
+    }
+    const share = $('.a-foot .share');
+    if (share) {
+      const a = document.createElement('a'); a.className = 'btn'; a.target = '_blank'; a.rel = 'noopener';
+      a.href = 'https://www.linkedin.com/sharing/share-offsite/?url=' + encodeURIComponent(location.href.split('#')[0]);
+      a.textContent = 'Share on LinkedIn ↗'; share.append(a);
+    }
   }
 
   const yr = $('#yr'); if (yr) yr.textContent = new Date().getFullYear();

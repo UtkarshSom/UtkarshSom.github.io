@@ -3,7 +3,7 @@
 .nav nav a.here{color:var(--text);background:var(--line)}
 
 /* ---------- index ---------- */
-.w-hero{padding:clamp(110px,12vw,140px) 0 clamp(28px,4vw,44px)}
+.w-hero{padding:clamp(92px,8vw,112px) 0 clamp(24px,3vw,36px)}
 .w-hero h1{font:400 clamp(44px,6.4vw,84px)/.95 var(--serif);letter-spacing:-.025em;margin:18px 0 16px}
 .w-hero h1 em{color:var(--accent)}
 .w-hero .lede{max-width:640px;font-size:clamp(16px,1.6vw,19px)}
@@ -21,7 +21,7 @@
 .post-next{display:block;padding:34px 0;color:var(--mute);font:400 13px var(--mono);letter-spacing:.06em;text-transform:uppercase;border-bottom:1px dashed var(--line)}
 
 /* ---------- article ---------- */
-.a-head{padding:clamp(130px,16vw,190px) 0 40px}
+.a-head{padding:clamp(92px,8vw,112px) 0 28px}
 .a-head .wrap,.a-body{max-width:760px}
 .back{font:500 12px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);display:inline-flex;gap:8px;transition:.2s}
 .back:hover{color:var(--accent)}
@@ -270,5 +270,38 @@ pre code{background:none;border:0;padding:0;font-size:inherit}
 
 /* moving network background, same as the homepage hero */
 .w-hero,.a-head{position:relative;overflow:hidden}
-.jbg{position:absolute;inset:0;width:100%;height:100%;-webkit-mask-image:linear-gradient(180deg,#000 55%,transparent 100%);mask-image:linear-gradient(180deg,#000 55%,transparent 100%)}
+/* dots across the top band and down both sides, clear in the middle behind the text */
+.jbg{position:absolute;inset:0;width:100%;height:100%;
+ -webkit-mask-image:linear-gradient(180deg,#000 0,#000 22%,transparent 46%),linear-gradient(90deg,#000 0,#000 17%,transparent 32%,transparent 68%,#000 83%,#000 100%);
+ mask-image:linear-gradient(180deg,#000 0,#000 22%,transparent 46%),linear-gradient(90deg,#000 0,#000 17%,transparent 32%,transparent 68%,#000 83%,#000 100%)}
 .w-hero>.wrap,.a-head>.wrap{position:relative}
+
+/* journal upgrades: search, filters, contents, up next */
+.jtools{display:flex;flex-direction:column;gap:14px;margin-bottom:22px}
+.jsearch{width:100%;padding:13px 20px;border-radius:99px;border:1px solid var(--line);background:var(--surface);color:var(--text);font:400 16px var(--sans);outline:none;transition:border-color .2s}
+.jsearch:focus{border-color:var(--accent)}
+.jfilters{display:flex;flex-wrap:wrap;gap:8px}
+.jchip{padding:7px 15px;border:1px solid var(--line);border-radius:99px;font-size:14px;color:var(--mute);transition:.2s}
+.jchip small{margin-left:6px;font:400 11px var(--mono);opacity:.7}
+.jchip:hover{color:var(--text);border-color:var(--accent)}
+.jchip.on{background:var(--accent);color:var(--accent-ink);border-color:var(--accent)}
+.post-row[hidden]{display:none}
+.jempty{padding:34px 0;color:var(--mute);border-bottom:1px solid var(--line)}
+.toc{position:fixed;left:max(24px,calc(50% - 380px - 270px));top:150px;width:220px;display:none;flex-direction:column;gap:2px;font-size:14px;z-index:5}
+.toc b{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--mute);margin-bottom:10px}
+.toc a{display:block;padding:7px 0 7px 14px;border-left:1px solid var(--line);color:var(--mute);line-height:1.35;transition:.2s}
+.toc a:hover{color:var(--text)}
+.toc a.on{color:var(--accent);border-left-color:var(--accent)}
+@media (min-width:1360px){.toc{display:flex}}
+.a-body h2{position:relative;scroll-margin-top:90px}
+.hlink{position:absolute;left:-1.1em;top:.15em;opacity:0;font:400 .55em var(--mono);color:var(--mute);transition:.2s;cursor:pointer;padding-right:.4em}
+.a-body h2:hover .hlink,.hlink:focus-visible{opacity:1}
+.hlink:hover{color:var(--accent)}
+@media (max-width:900px){.hlink{display:none}}
+.upnext{display:block;margin-top:3em;padding:26px 28px;border:1px solid var(--line);border-radius:20px;background:var(--surface);transition:border-color .25s,transform .25s var(--ease)}
+.upnext:hover{border-color:var(--accent);transform:translateY(-3px)}
+.upnext small{font:500 11px var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--accent)}
+.upnext h3{font:400 clamp(26px,3.4vw,36px)/1.1 var(--serif);margin:10px 0 6px;color:var(--text)}
+.upnext p{font-size:15px;color:var(--mute)}
+.a-body a.upnext{text-decoration:none;color:inherit}
+.a-body .upnext p{font-size:15px;line-height:1.5}
