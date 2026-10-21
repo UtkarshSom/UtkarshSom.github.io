@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <rss version="2.0"><channel>
 <title>Utkarsh Som | Journal</title>
-<link>https://utkashsom.github.io/journal/</link>
+<link>https://utkarshsom.github.io/journal/</link>
 <description>Notes on CRM, lifecycle marketing, email and analytics.</description>
 <language>en</language>
-<item><title>AI in CRM is aimed at the wrong job</title><link>https://utkashsom.github.io/journal/ai-in-crm.html</link><guid>https://utkashsom.github.io/journal/ai-in-crm.html</guid><pubDate>Tue, 20 Oct 2026 09:00:00 +0400</pubDate><description>Most teams point AI at the copy. I would point it at the decisions, with demos of the ML behind them.</description></item>
-<item><title>One template, many emails</title><link>https://utkashsom.github.io/journal/personalisation-with-html.html</link><guid>https://utkashsom.github.io/journal/personalisation-with-html.html</guid><pubDate>Tue, 20 Oct 2026 09:00:00 +0400</pubDate><description>How personalisation works in a plain HTML email: a few merge tags, a couple of conditions, and a demo where you can switch the reader.</description></item>
-<item><title>Your email is either a picture or a product</title><link>https://utkashsom.github.io/journal/email-html-vs-images.html</link><guid>https://utkashsom.github.io/journal/email-html-vs-images.html</guid><pubDate>Tue, 20 Oct 2026 09:00:00 +0400</pubDate><description>Same newsletter, built two ways. What changes when an email is real HTML and CSS instead of one flat image.</description></item>
+<item><title>AI in CRM is aimed at the wrong job</title><link>https://utkarshsom.github.io/journal/ai-in-crm.html</link><guid>https://utkarshsom.github.io/journal/ai-in-crm.html</guid><pubDate>Tue, 20 Oct 2026 09:00:00 +0400</pubDate><description>Most teams point AI at the copy. I would point it at the decisions, with demos of the ML behind them.</description></item>
+<item><title>One template, many emails</title><link>https://utkarshsom.github.io/journal/personalisation-with-html.html</link><guid>https://utkarshsom.github.io/journal/personalisation-with-html.html</guid><pubDate>Tue, 20 Oct 2026 09:00:00 +0400</pubDate><description>How personalisation works in a plain HTML email: a few merge tags, a couple of conditions, and a demo where you can switch the reader.</description></item>
+<item><title>Your email is either a picture or a product</title><link>https://utkarshsom.github.io/journal/email-html-vs-images.html</link><guid>https://utkarshsom.github.io/journal/email-html-vs-images.html</guid><pubDate>Tue, 20 Oct 2026 09:00:00 +0400</pubDate><description>Same newsletter, built two ways. What changes when an email is real HTML and CSS instead of one flat image.</description></item>
 </channel></rss>
